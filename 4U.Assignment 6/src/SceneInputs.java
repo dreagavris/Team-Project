@@ -6,7 +6,7 @@
 
 /**
  *
- * @author haynal
+ * @author ratid6445
  */
 public class SceneInputs {
     private String dir;
