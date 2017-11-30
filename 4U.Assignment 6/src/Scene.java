@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 /**
  *
- * @author haynal
+ * @author ratid6445
  */
 public class Scene {
 
