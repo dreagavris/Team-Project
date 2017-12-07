@@ -20,7 +20,9 @@ public class ImageLoad {
         BufferedImage pic = null;
         try {
             String file = null;
+            // get the images from the file
             pic = ImageIO.read(new File("images/" + file));
+            // exceptino thread
         } catch (IOException e) {
             e.printStackTrace();
         }
