@@ -9,30 +9,29 @@
  * @author ratid6445
  */
 public class SceneInputs {
-    private String dir;
-    private String image;
+    private char dir;
+    private Locations image;
     private boolean isBlocked;
-    private String nextDir;
-    private String nextLoc;
+    private char nextDir;
+    private Scene nextLoc;
     
-    public SceneInputs(String direction){
+    public SceneInputs(char direction){
         this.dir = direction;
     }
     
-    public void image(String image){
+    public void image(Locations image){
         this.image = image;
     }
     
-    public boolean isBlocked(boolean isBlocked){
+    public void isBlocked(boolean isBlocked){
         this.isBlocked = isBlocked;
-        return false;
     }
     
-    public void nextDirection(String nextDir){
+    public void nextDirection(char nextDir){
         this.nextDir = nextDir;
     }
     
-    public void nextLoc(String nextLoc){
+    public void nextLoc(Scene nextLoc){
         this.nextLoc = nextLoc;
     }
 }

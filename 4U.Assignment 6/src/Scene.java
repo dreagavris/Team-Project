@@ -19,8 +19,8 @@ public class Scene {
 
     public Scene() {
         try {
-            textFile = new FileReader("Scenarios");
-            URL url = Scene.class.getResource("Scenarios.txt");
+            textFile = new FileReader("Locations");
+            URL url = Scene.class.getResource("Locations.txt");
 
             textFile = new FileReader(url.getFile());
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class Scene {
         for (int i = 0; i < 122; i++) {
             String dir = in.next();
             String image = in.next();
-            boolean isBlocked = in.hasNext();
+            String isBlocked = in.next();
             String nextDir = in.next();
             String nextLoc = in.nextLine().trim();
             // create the scene using that information
