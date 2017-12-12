@@ -17,12 +17,12 @@ public class ImageLoad {
 
     public void ImageLoad() {
         // load the images
-        BufferedImage pic = null;
+        BufferedImage image = null;
         try {
-            String file = null;
+            String theImage = null;
             // get the images from the file
-            pic = ImageIO.read(new File("images/" + file));
-            // exceptino thread
+            image = ImageIO.read(new File("images/" + theImage));
+            // exception thread
         } catch (IOException e) {
             e.printStackTrace();
         }
