@@ -1,7 +1,9 @@
 
+import java.io.File;
 import java.io.FileReader;
-import java.net.URL;
+import java.io.IOException;
 import java.util.Scanner;
+import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,45 +16,47 @@ import java.util.Scanner;
  */
 public class Scene {
 
-    String[] scenes;
     FileReader textFile;
 
     public Scene() {
-        try {
-            textFile = new FileReader("Locations");
-            URL url = Scene.class.getResource("Locations.txt");
-
-            textFile = new FileReader(url.getFile());
-        } catch (Exception e) {
-            // handle any errors
-            // print out the lovely red errors
-            e.printStackTrace();
-            //exit the program
-            System.exit(0);
-        }
-
+        // read the text file
         Scanner in = new Scanner(textFile);
 
-        // get the start position
-        String startLoc = in.nextLine();
+        // get the direction
+        SceneInputs.dir = in.next();
 
-        // move to the next line
-        String startDir = in.nextLine();
+        // get the image
+        String theImage = in.next();
 
-        // go through the file
-        for (int i = 0; i < 122; i++) {
-            String dir = in.next();
-            String image = in.next();
-            String isBlocked = in.next();
-            String nextDir = in.next();
-            String nextLoc = in.nextLine().trim();
-            // create the scene using that information
-            SceneInputs scenes = new SceneInputs(dir);
-            scenes.image(image);
-            scenes.isBlocked(isBlocked);
-            scenes.nextDirection(nextDir);
-            scenes.nextLoc(nextLoc);
+        // ImageLoader
+        // make theImage the image
+        try {
+            // get the images from the file
+            SceneInputs.image = ImageIO.read(new File("images/" + theImage));
+            // exception thread
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // since the next information is a boolean, must make a string first to get it
+        String next = in.next();
+        // see if the next input is true or false
+        if (next.equals("false")) {
+            // if input is false then it is blocked
+            SceneInputs.isBlocked = false;
+            //get the next inputs
+            // next input gives the next direction
+            SceneInputs.nextDir = in.next();
+            // the next input is the next location
+            SceneInputs.nextLoc = in.next();
+            // move to the next line
+            in.nextLine();
+            // if the next input is true
+        } else {
+            // then it is not blocked
+            SceneInputs.isBlocked = true;
+            //move to the next line because no more inputs after true
+            in.nextLine();
         }
     }
-    
 }
