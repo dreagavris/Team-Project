@@ -2,6 +2,7 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
@@ -30,13 +31,20 @@ public class SceneInputs {
 
         // get the direction
         dir = in.next();
-        
+
         // get the image
         String theImage = in.next();
-        // ImageLoader text file
-        ImageLoad.class.equals(theImage);
         
-        // get the following information
+        // ImageLoader
+        // make theImage the image
+        try {
+            // get the images from the file
+            image = ImageIO.read(new File("images/" + theImage));
+            // exception thread
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
         // since the next information is a boolean, must make a string first to get it
         String next = in.next();
         // see if the next input is true or false
@@ -64,13 +72,13 @@ public class SceneInputs {
         this.dir = direction;
         return direction;
     }
-    
+
     // get the image
     public BufferedImage getImage(BufferedImage image) {
         this.image = image;
         return image;
     }
-    
+
     // see if can move
     public boolean isBlocked(boolean isBlocked) {
         this.isBlocked = isBlocked;
