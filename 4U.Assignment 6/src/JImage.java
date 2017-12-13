@@ -22,17 +22,13 @@ public class JImage extends JComponent {
             if (image != null) {
                 //draw the images
                 g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
-
             }
-
         }
 
         public void setImage(BufferedImage img) {
             this.image = img;
             //repaint to draw
             repaint();
-
         }
-        
     }
 
