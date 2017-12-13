@@ -1,11 +1,5 @@
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Scanner;
-import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,54 +12,11 @@ import javax.imageio.ImageIO;
  */
 public class SceneInputs {
 
-    private String dir;
-    private BufferedImage image;
-    private boolean isBlocked;
-    private String nextDir;
-    private String nextLoc;
-    FileReader textFile;
-
-    public SceneInputs() {
-        // read the text file
-        Scanner in = new Scanner(textFile);
-
-        // get the direction
-        dir = in.next();
-
-        // get the image
-        String theImage = in.next();
-        
-        // ImageLoader
-        // make theImage the image
-        try {
-            // get the images from the file
-            image = ImageIO.read(new File("images/" + theImage));
-            // exception thread
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        // since the next information is a boolean, must make a string first to get it
-        String next = in.next();
-        // see if the next input is true or false
-        if (next.equals("false")) {
-            // if input is false then it is blocked
-            isBlocked = false;
-            //get the next inputs
-            // next input gives the next direction
-            nextDir = in.next();
-            // the next input is the next location
-            nextLoc = in.next();
-            // move to the next line
-            in.nextLine();
-            // if the next input is true
-        } else {
-            // then it is not blocked
-            isBlocked = true;
-            //move to the next line because no more inputs after true
-            in.nextLine();
-        }
-    }
+    static String dir;
+    static BufferedImage image;
+    static boolean isBlocked;
+    static String nextDir;
+    static String nextLoc;
 
     // get the direction
     public String getDirection(String direction) {
