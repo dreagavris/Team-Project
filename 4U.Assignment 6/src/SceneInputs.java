@@ -14,6 +14,7 @@ public class SceneInputs {
 
     static String dir;
     static BufferedImage image;
+    static String theImage;
     static boolean isBlocked;
     static String nextDir;
     static String nextLoc;
@@ -28,6 +29,12 @@ public class SceneInputs {
     public BufferedImage getImage(BufferedImage image) {
         this.image = image;
         return image;
+    }
+    
+    // get theImage
+    public String getTheImage(String theImage){
+        this.theImage = theImage;
+        return theImage;
     }
 
     // see if can move
