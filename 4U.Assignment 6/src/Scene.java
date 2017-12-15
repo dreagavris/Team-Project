@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
  */
 public class Scene {
 
+    // make the text file variable
     FileReader textFile;
 
     public Scene() {
@@ -26,17 +27,10 @@ public class Scene {
         SceneInputs.dir = in.next();
 
         // get the image
-        String theImage = in.next();
-
-        // ImageLoader
-        // make theImage the image
-        try {
-            // get the images from the file
-            SceneInputs.image = ImageIO.read(new File("images/" + theImage));
-            // exception thread
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        SceneInputs.theImage = in.next();
+        
+        // set theImage as the image form the image loader
+        ImageLoad.class.getClass();
 
         // since the next information is a boolean, must make a string first to get it
         String next = in.next();
