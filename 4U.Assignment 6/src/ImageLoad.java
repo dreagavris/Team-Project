@@ -19,7 +19,7 @@ public class ImageLoad {
         // load the images
         BufferedImage image = null;
         try {
-            String theImage = null;
+            String theImage = SceneInputs.theImage;
             // get the images from the file
             image = ImageIO.read(new File("images/" + theImage));
             // exception thread
